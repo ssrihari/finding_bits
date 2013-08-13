@@ -29,7 +29,7 @@ class GithubApi
     search_snippet = h[:search_snippet]
 
     # The repo search qualifier should look like '@rails/rails @c42/wrest'
-    repos = h[:repos].map {|repo| "@#{repo}"}.join(" ")
+    repos = h[:repos].map {|repo| "@#{repo["full_name"]}"}.join(" ")
 
     query = {
         q: "#{search_snippet} in:file #{repos}"
