@@ -11,5 +11,6 @@
  *= require_self
  *= require html5-doctor-reset-stylesheet.min
  *= require font-awesome
+ *= require syntaxhighlighter
  *= require_tree .
  */

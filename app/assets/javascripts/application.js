@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require unstable/angular
 //= require unstable/angular-resource
+//= require syntaxhighlighter/shCore
+//= require syntaxhighlighter
 //= require_tree .
