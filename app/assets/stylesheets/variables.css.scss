@@ -9,9 +9,13 @@ $sidebar-fg: #666;
 $border-color: #a34752;
 $border-color: #ddd;
 
+$relative-font-sizing : false;
+$base-font-size       : 13px;
+$base-line-height     : 20px;
+
 @import "susy";
 
-$total-columns  : 20;             // a 12-column grid
-$column-width   : 5%;            // each column is 4em wide
+$total-columns  : 8;             // a 12-column grid
+$column-width   : 10%;            // each column is 4em wide
 $gutter-width   : 0%;            // 1em gutters between columns
 $grid-padding   : $gutter-width;  // grid-padding equal to gutters

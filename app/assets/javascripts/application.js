@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require unstable/angular
 //= require unstable/angular-resource
-//= require syntaxhighlighter/shCore
-//= require syntaxhighlighter
+//= require highlight
+//= require chosen-jquery
+//= require chosen
 //= require modules
 //= require_tree .

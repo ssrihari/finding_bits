@@ -1,1 +1,1 @@
-angular.module 'findingBitsApp', []
+angular.module 'findingBitsApp', ['localytics.directives']

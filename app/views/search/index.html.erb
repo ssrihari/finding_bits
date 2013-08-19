@@ -2,28 +2,37 @@
   <div class="main">
     <h1></h1>
 
-    <p>Welcome</p>
     <div ng-controller="SearchController">
 
       <form ng-submit="search()">
         <div class="select-language">
-          <select ng-model="form.language" ng-options="name for name in languagesList"></select>
+          <select chosen ng-model="form.language" ng-options="name for name in languagesList"></select>
         </div>
 
         <div class="search-snippet">
-          <input type="text" ng-model="form.search_snippet" placeholder="code snippet to search"/>
+          <input class='search' type="text" ng-model="form.search_snippet" placeholder="code snippet to search"/>
+          <button class="btn search">Search</button>
         </div>
 
-        <button class="btn">Search</button>
+        <div class="searching-indicator" ng-show="is_searching">
+          Searching..
+        </div>
       </form>
 
       <div class="results" ng-show="search_results.length">
         <div class="result" ng-repeat="result in search_results">
-          <h3><a href="{{result.repository.html_url}}">{{result.repository.full_name}}</a></h3>
+
+          <div class="repo-link-bar">
+            <a class='repo' href="{{result.repository.html_url}}">{{result.repository.full_name}}</a>
+            -
+            <a class='repo' href="{{result.html_url}}">{{result.path}}</a>
+          </div>
+
           <div class='text-match' ng-repeat="text_match in result.text_matches">
             <syntaxcode language="{{form.language}}" snippet="text_match.fragment">
             </syntaxcode>
           </div>
+
         </div>
       </div>
     </div>

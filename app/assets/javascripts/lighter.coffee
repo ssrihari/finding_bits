@@ -4,10 +4,13 @@ angular.module('findingBitsApp').directive('syntaxcode', ($timeout) ->
     replace: true,
     transclude: false,
     scope: { language: "@", snippet: "="},
-    template: "<pre class='brush: {{language}}'>{{snippet}}</pre>",
+    template: "<pre></pre>",
     link: (scope, $iElement, iAttrs) ->
       $timeout( ->
-        SyntaxHighlighter.highlight({}, $iElement[0])
+#        window.x=hljs.highlight(scope.language, scope.snippet, true)
+        $iElement.html(hljs.highlight(scope.language, scope.snippet, true).value)
+#        console.log($iElement)
+#        SyntaxHighlighter.highlight({}, $iElement[0])
       , 0)
 
   }
