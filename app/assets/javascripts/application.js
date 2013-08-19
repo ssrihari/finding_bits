@@ -16,4 +16,5 @@
 //= require unstable/angular-resource
 //= require syntaxhighlighter/shCore
 //= require syntaxhighlighter
+//= require modules
 //= require_tree .

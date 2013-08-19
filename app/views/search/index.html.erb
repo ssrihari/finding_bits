@@ -21,11 +21,12 @@
         <div class="result" ng-repeat="result in search_results">
           <h3><a href="{{result.repository.html_url}}">{{result.repository.full_name}}</a></h3>
           <div class='text-match' ng-repeat="text_match in result.text_matches">
-            {{text_match.fragment}}
+            <syntaxcode language="{{form.language}}" snippet="text_match.fragment">
+            </syntaxcode>
           </div>
         </div>
-        <!--{{search_results}}-->
       </div>
     </div>
   </div>
 </div>
+

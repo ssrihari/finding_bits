@@ -1,7 +1,7 @@
 angular.module('findingBitsApp').controller 'SearchController', ['$log', '$scope', '$http', ($log, $scope, $http) ->
   init = ->
     $scope.form = {
-      search_snippet: ""
+      search_snippet: "shell"
       language: 'python'
     }
 
