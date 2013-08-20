@@ -49,7 +49,7 @@ header, footer {
     }
 
     div.project-urls {
-      @include span-columns(2 omega, 10);
+      @include span-columns(1 omega, 10);
     }
   }
 }

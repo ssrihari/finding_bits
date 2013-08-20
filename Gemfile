@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'httparty'
+gem 'delayed_job_active_record'
 
 gem 'susy'
 gem 'compass', '>= 0.12.2'
