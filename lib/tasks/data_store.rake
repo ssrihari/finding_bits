@@ -8,7 +8,9 @@ namespace :datastore do
 
     puts "Datastore path: #{datastore_path}"
     languages.each { |language|
-      puts "Updating #{language}.."; GithubLanguageDatastore.new(datastore_path, language).update_top_repos(">50")
+      language_data_store = GithubLanguageDatastore.new(datastore_path, language)
+      puts "Retrieving top #{language} repos to #{language_data_store.top_repos_file}.."
+      language_data_store.update_top_repos(">50")
     }
   end
 end
