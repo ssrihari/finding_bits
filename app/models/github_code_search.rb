@@ -1,16 +1,23 @@
-# Search Github for code snippets from the top repositories of a given language
+# Provides github code search results and a queuing mechanism for requests.
+# Wraps ApiResponse.
 class GithubCodeSearch
+  attr_reader :language, :search_snippet, :api_response_record
+
+  delegate :status, :search_result, :queued?, :available?, :to => :api_response_record, :allow_nil => true
+
   def initialize(h)
+    h = HashWithIndifferentAccess.new(h)
     @language = h[:language]
     @search_snippet = h[:search_snippet]
-    @datastore_path = ENV["GH_CODESEARCH_DATASTORE_PATH"]
   end
 
-  def repos
-    @repos ||= GithubLanguageDatastore.new(@datastore_path, @language).retrieve_top_repos
+  def api_response_record
+    @api_response_record ||= ApiResponse.find_by(language: language, search_snippet: search_snippet)
   end
 
-  def search
-    GithubApi.new.code_search(search_snippet: @search_snippet, repos: repos)
+  # Create an ApiResponse entry and queue an async GithubApiRequest to update it with results of the query
+  def queue
+    @api_response_record = ApiResponse.create!(language: language, search_snippet: search_snippet, status: "queued")
+    api_response_record.delay.search!
   end
 end

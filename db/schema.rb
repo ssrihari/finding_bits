@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820180350) do
+ActiveRecord::Schema.define(version: 20130820181158) do
+
+  create_table "api_responses", force: true do |t|
+    t.string   "language"
+    t.string   "search_snippet"
+    t.string   "response_json"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
