@@ -10,7 +10,7 @@ FindingBits does this by caching a list of the top projects in each language, an
 
 # Installation
 
-    git clone https://github.com/jasim/finding_bits
+    git clone https://github.com/jasim/finding_bits.git
     cd finding_bits
     bundle
     rake db:setup
