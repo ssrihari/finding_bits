@@ -5,6 +5,9 @@ gem 'rails', '4.0.0'
 gem 'httparty'
 gem 'delayed_job_active_record'
 
+gem 'daemons'
+gem 'rspec-rails'
+
 gem 'susy'
 gem 'compass', '>= 0.12.2'
 gem "compass-rails",
