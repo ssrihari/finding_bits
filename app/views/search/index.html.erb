@@ -15,7 +15,7 @@
         </div>
 
         <div class="searching-indicator" ng-show="is_searching">
-          Searching..
+          {{search_status}}
         </div>
       </form>
 
@@ -32,8 +32,11 @@
             <syntaxcode language="{{form.language}}" snippet="text_match.fragment">
             </syntaxcode>
           </div>
-
         </div>
+      </div>
+
+      <div class='zero-results' ng-show="search_results.length == 0">
+        There are no results for this search.
       </div>
     </div>
   </div>

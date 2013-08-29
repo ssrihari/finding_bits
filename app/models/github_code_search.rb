@@ -18,6 +18,6 @@ class GithubCodeSearch
   # Create an ApiResponse entry and queue an async GithubApiRequest to update it with results of the query
   def queue
     @api_response_record = ApiResponse.create!(language: language, search_snippet: search_snippet, status: "queued")
-    api_response_record.delay.search!
+    Delayed::Job.enqueue GithubCodeSearchJob.new(api_response_record.id)
   end
 end
